@@ -1,0 +1,83 @@
+/* ----------------------------------------------------------
+Styling Firefox's context (right-click) menu - Modified version of  soulhotel chrome.css
+https://gist.github.com/soulhotel/23c20583751a7f457eb5b5579e828965/
+-----------------------------------------------------------*/
+
+/* Define variables for easier color and style management */
+:root, body, * {
+  --uc-background-color: rgb(0, 0, 0); /* Updated background color */
+  --uc-border-color: rgb(0, 0, 0); /* Updated border color */
+  --uc-text-color: rgba(255, 255, 255, 0.8); /* Updated text color */
+  --uc-border-radius: 5px; /* Reduced border radius for compact look */
+  --uc-selected: rgba(255, 255, 255, 0.2); /* Updated selected color */
+  --uc-hover: rgba(255, 255, 255, 0.3); /* Updated hover color */
+}
+
+/* Removing specific context menu items */
+#context-sendimage,
+#context-setDesktopBackground,
+#context-sep-setbackground,
+#context-openlinkinusercontext-menu,
+#context-pocket,
+#context-savelinktopocket,
+#context_shareTabURL,
+#context_moveTabOptions,
+#context_closeDuplicateTabs,
+.share-tab-url-item {
+  display: none !important;
+}
+
+/* Compact menu styling */
+menupopup, panel, menu, menuitem {
+  padding: 2px !important; /* Reduce padding for compact look */
+  margin: 0 !important; /* Remove margins */
+  font-size: 12px !important; /* Decrease font size */
+  --panel-background: var(--uc-background-color) !important;
+  --panel-color: var(--uc-text-color) !important;
+  --panel-border-radius: var(--uc-border-radius) !important;
+  --panel-border-color: var(--uc-border-color) !important;
+  --panel-shadow: 0 0 var(--uc-border-color) hsla(0,0%,0%,.2);
+
+  border: var(--uc-border-width) solid var(--uc-border-color) var(--uc-border-radius) !important; /* Border styling */
+  --uc-border-color: rgba(255, 255, 255, 0.2); /* Border color */
+  --uc-border-width: 1px; /* Border width for context menus */
+}
+
+/* Reduce minimum height for menu items */
+menuitem, menu {
+  min-height: 18px !important; /* Make items shorter */
+  padding: 3px 8px !important; /* Adjust padding for compact look */
+}
+
+/* Hover and active states */
+menuitem:hover,
+menu:where([_moz-menuactive="true"]:not([disabled="true"])) {
+  background-color: var(--uc-selected) !important;
+  color: var(--uc-text-color) !important;
+  padding: 3px 8px !important;
+}
+
+/* Compact separator styling */
+menuseparator {
+  margin: 2px 0 !important;
+  padding: 0 !important;
+  height: 1px !important;
+}
+
+/* Adjust right padding for submenus dropdown arrow */
+menu {
+  padding-right: 5px !important;
+}
+
+/* Hover styling for menu items */
+menuitem:hover {
+  background-color: var(--uc-hover) !important;
+  color: var(--uc-text-color) !important;
+}
+
+/* Active menu items styling */
+menu:where([_moz-menuactive="true"]:not([disabled="true"])),
+menuitem:where([_moz-menuactive="true"]:not([disabled="true"])) {
+  background-color: var(--uc-selected) !important;
+  color: var(--uc-text-color) !important;
+}
